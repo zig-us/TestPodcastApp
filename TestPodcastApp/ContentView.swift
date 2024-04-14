@@ -24,7 +24,7 @@ struct ContentView: View {
                 .padding(.top)
             
             Button(action: play) {
-                Label("Sign In", systemImage: "arrow.up")
+                Label("PlayMusic", systemImage: "arrow.up")
             }
             .buttonStyle(.borderedProminent)
         }
@@ -34,12 +34,11 @@ struct ContentView: View {
     
 }
 func play() {
-    let path = Bundle.main.path(forResource: "example.mp3", ofType:nil)!
+    let path = Bundle.main.path(forResource: "example", ofType:"mp3")!
     let url = URL(fileURLWithPath: path)
     do {
         playAudio = try AVAudioPlayer(contentsOf: url)
     } catch {
-        
         
     }
 }

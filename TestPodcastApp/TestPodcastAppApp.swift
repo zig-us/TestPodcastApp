@@ -15,3 +15,9 @@ struct TestPodcastAppApp: App {
         }
     }
 }
+
+
+#Preview {
+    ContentView()
+}
+
