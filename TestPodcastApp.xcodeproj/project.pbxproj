@@ -11,6 +11,7 @@
 		4E3D28C62BC04344000C6DF2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3D28C52BC04344000C6DF2 /* ContentView.swift */; };
 		4E3D28C82BC04345000C6DF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E3D28C72BC04345000C6DF2 /* Assets.xcassets */; };
 		4E3D28CB2BC04345000C6DF2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E3D28CA2BC04345000C6DF2 /* Preview Assets.xcassets */; };
+		4EB1CFC22BCB59BD008571AA /* example.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4EB1CFC12BCB59BD008571AA /* example.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,8 @@
 		4E3D28C52BC04344000C6DF2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4E3D28C72BC04345000C6DF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E3D28CA2BC04345000C6DF2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4E91C3F62BE9D4AF005784E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4EB1CFC12BCB59BD008571AA /* example.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = example.mp3; path = Audio/example.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +54,8 @@
 		4E3D28C22BC04344000C6DF2 /* TestPodcastApp */ = {
 			isa = PBXGroup;
 			children = (
+				4E91C3F62BE9D4AF005784E7 /* Info.plist */,
+				4EB1CFC12BCB59BD008571AA /* example.mp3 */,
 				4E3D28C32BC04344000C6DF2 /* TestPodcastAppApp.swift */,
 				4E3D28C52BC04344000C6DF2 /* ContentView.swift */,
 				4E3D28C72BC04345000C6DF2 /* Assets.xcassets */,
@@ -125,6 +130,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EB1CFC22BCB59BD008571AA /* example.mp3 in Resources */,
 				4E3D28CB2BC04345000C6DF2 /* Preview Assets.xcassets in Resources */,
 				4E3D28C82BC04345000C6DF2 /* Assets.xcassets in Resources */,
 			);
@@ -276,6 +282,7 @@
 				DEVELOPMENT_TEAM = LVCVJ7PZ4Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TestPodcastApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -307,6 +314,7 @@
 				DEVELOPMENT_TEAM = LVCVJ7PZ4Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TestPodcastApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
