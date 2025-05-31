@@ -196,13 +196,3 @@ extension Optional where Wrapped == Any {
         return self != nil
     }
 }
-    
-    // Format seconds into human-readable string
-    static func formatTime(_ seconds: TimeInterval) -> String {
-        if seconds < 60 {
-            return "\(Int(seconds))s"
-        } else {
-            return "\(Int(seconds/60))m"
-        }
-    }
-}
