@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct TestPodcastAppApp: App {
+    @StateObject private var preferences = UserPreferences()
+    @StateObject private var podcastManager = PodcastManager()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(preferences)
+                .environmentObject(podcastManager)
         }
     }
 }
@@ -19,5 +24,7 @@ struct TestPodcastAppApp: App {
 
 #Preview {
     ContentView()
+        .environmentObject(UserPreferences())
+        .environmentObject(PodcastManager())
 }
 
