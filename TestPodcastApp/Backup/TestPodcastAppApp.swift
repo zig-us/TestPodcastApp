@@ -7,14 +7,20 @@
 
 import SwiftUI
 import AVFoundation
+
+// Import our models and views
 import Foundation
-import Combine
 
 // MARK: - App Entry Point
+@main
 struct TestPodcastAppApp: App {
     // Create our main model objects as StateObjects so they persist for the app's lifetime
     @StateObject private var preferences = UserPreferences()
     @StateObject private var podcastManager = PodcastManager()
+    
+    init() {
+        // Initialize any app-wide settings or configurations here
+    }
     
     var body: some Scene {
         WindowGroup {
@@ -25,7 +31,10 @@ struct TestPodcastAppApp: App {
     }
 }
 
-// MARK: - Model Definitions (These will be replaced with proper imports)
+// MARK: - Temporary Type References for Compilation
+// This will be removed once proper module imports are set up
+
+// Model Class Definitions
 class UserPreferences: ObservableObject {
     @Published var skipForwardTime: TimeInterval = 30.0
     @Published var skipBackwardTime: TimeInterval = 15.0
@@ -48,6 +57,7 @@ class UserPreferences: ObservableObject {
     static func formatSleepTimer(_ seconds: TimeInterval) -> String { return "30m" }
 }
 
+// Controller Class Definitions
 class PodcastManager: ObservableObject {
     @Published var currentEpisode: String?
     @Published var subscribedShows: [String] = []
@@ -60,7 +70,7 @@ class PodcastManager: ObservableObject {
     func markAsComplete(podcast: String, preferences: UserPreferences) {}
 }
 
-// MARK: - View Definitions (These will be replaced with proper imports)
+// View Definitions
 struct MainTabView: View {
     var body: some View {
         Text("Main Tab View")
@@ -106,38 +116,6 @@ struct DiscoverView: View {
 struct DownloadsView: View {
     var body: some View {
         Text("Downloads View")
-    }
-}
-
-// MARK: - App Entry Point
-// Cannot use @main directly due to top-level code issue
-struct TestPodcastAppApp: App {
-    // Create our main model objects as StateObjects so they persist for the app's lifetime
-    @StateObject private var preferences = UserPreferences()
-    @StateObject private var podcastManager = PodcastManager()
-    
-    init() {
-        // Initialize any app-wide settings or configurations here
-    }
-    
-    var body: some Scene {
-        WindowGroup {
-            MainTabView()
-                .environmentObject(preferences)
-                .environmentObject(podcastManager)
-        }
-    }
-}
-
-// Manual entry point
-@main 
-struct AppLauncher {
-    static func main() {
-        if #available(iOS 14.0, macOS 11.0, *) {
-            TestPodcastAppApp.main()
-        } else {
-            print("Unsupported OS version")
-        }
     }
 }
 

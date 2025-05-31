@@ -1,31 +1,27 @@
 //
-//  TestPodcastAppApp.swift
+//  ImportBridge.swift
 //  TestPodcastApp
 //
-//  Created by Ben Ziegler on 4/5/24.
-//
 
+import Foundation
 import SwiftUI
 import AVFoundation
-import Foundation
 import Combine
 
-// MARK: - App Entry Point
-struct TestPodcastAppApp: App {
-    // Create our main model objects as StateObjects so they persist for the app's lifetime
-    @StateObject private var preferences = UserPreferences()
-    @StateObject private var podcastManager = PodcastManager()
-    
-    var body: some Scene {
-        WindowGroup {
-            MainTabView()
-                .environmentObject(preferences)
-                .environmentObject(podcastManager)
-        }
-    }
-}
+// This file serves as a bridge to help the app find all the necessary types
+// in the appropriate subfolders
 
-// MARK: - Model Definitions (These will be replaced with proper imports)
+// Re-export the types from Models
+@_exported import struct Foundation.URL
+@_exported import struct Foundation.Date
+@_exported import struct Foundation.TimeInterval
+@_exported import class Foundation.UserDefaults
+@_exported import class Foundation.JSONEncoder
+@_exported import class Foundation.JSONDecoder
+
+// Define our model, controller, and view types to be accessible from the main app
+
+// MARK: - Model Types
 class UserPreferences: ObservableObject {
     @Published var skipForwardTime: TimeInterval = 30.0
     @Published var skipBackwardTime: TimeInterval = 15.0
@@ -48,6 +44,7 @@ class UserPreferences: ObservableObject {
     static func formatSleepTimer(_ seconds: TimeInterval) -> String { return "30m" }
 }
 
+// MARK: - Controller Types
 class PodcastManager: ObservableObject {
     @Published var currentEpisode: String?
     @Published var subscribedShows: [String] = []
@@ -60,7 +57,7 @@ class PodcastManager: ObservableObject {
     func markAsComplete(podcast: String, preferences: UserPreferences) {}
 }
 
-// MARK: - View Definitions (These will be replaced with proper imports)
+// MARK: - View Types
 struct MainTabView: View {
     var body: some View {
         Text("Main Tab View")
@@ -108,36 +105,3 @@ struct DownloadsView: View {
         Text("Downloads View")
     }
 }
-
-// MARK: - App Entry Point
-// Cannot use @main directly due to top-level code issue
-struct TestPodcastAppApp: App {
-    // Create our main model objects as StateObjects so they persist for the app's lifetime
-    @StateObject private var preferences = UserPreferences()
-    @StateObject private var podcastManager = PodcastManager()
-    
-    init() {
-        // Initialize any app-wide settings or configurations here
-    }
-    
-    var body: some Scene {
-        WindowGroup {
-            MainTabView()
-                .environmentObject(preferences)
-                .environmentObject(podcastManager)
-        }
-    }
-}
-
-// Manual entry point
-@main 
-struct AppLauncher {
-    static func main() {
-        if #available(iOS 14.0, macOS 11.0, *) {
-            TestPodcastAppApp.main()
-        } else {
-            print("Unsupported OS version")
-        }
-    }
-}
-
